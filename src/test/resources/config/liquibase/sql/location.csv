@@ -1,0 +1,2 @@
+id;code;name;description;active;status;mode;service_delivery_location_role_type;address;telecoms;location_type;managing_organization_id;part_of_id
+1;1001-B1;Narayana Health Cardiac Building 1;something;f;{"id": 30, "code": "suspended", "active": true, "display": "Suspended"};{"id": 33, "code": "kind", "active": true, "display": "Kind"};{"id": 80, "code": "HU", "active": true, "display": "Hospital unit"};[];[];{"id": 35, "code": "bu", "active": true, "display": "Building"};3;null

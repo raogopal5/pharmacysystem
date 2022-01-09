@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "item",
+            "otherEntityName": "Item",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "healthCareServiceCenter",
+            "otherEntityName": "HealthcareServiceCenter",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "locator",
+            "otherEntityName": "Locator",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170118110207",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "item_store_locator_map",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

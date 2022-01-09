@@ -1,0 +1,98 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "partOf",
+            "otherEntityName": "Organization",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "HealthcareServiceCenter",
+            "relationshipValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "HealthcareServiceCenter",
+            "relationshipValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "relationshipName": "calendar",
+            "otherEntityName": "Calendar",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "HealthcareServiceCenter"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "availableTime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notAvailableTime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "appointmentRequired",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startedOn",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "telecom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceCategory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subCategory",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170220134256",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "healthcare_service_center",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

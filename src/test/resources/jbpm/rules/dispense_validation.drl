@@ -1,0 +1,60 @@
+package org.nh.pharmacy.dispense;
+
+dialect "java"
+
+import org.nh.pharmacy.domain.Dispense;
+import org.nh.pharmacy.domain.dto.DispenseDocument;
+import org.nh.pharmacy.domain.dto.DispenseDocumentLine;
+import static org.nh.common.util.BigDecimalUtil.*;
+import org.nh.jbpm.domain.dto.Error;
+import org.nh.common.dto.UserDTO;
+
+rule "Dispense_Validation_items_not_empty"
+	salience 65599
+	when
+	    dispense: Dispense()
+	then
+        /*if (dispense.getDocument().getDispenseDocumentLines().isEmpty()) {
+            throw new IllegalArgumentException("At-least one item should be available for dispense");
+        }*/
+        if (dispense.getDocument().getUserDiscountPercentage() > 100
+            || dispense.getDocument().getUserDiscountPercentage() < 0) {
+            throw new IllegalArgumentException("User discount percentage is invalid");
+        }
+        if (ltZero(dispense.getDocument().getUserDiscountAmount())){
+            throw new IllegalArgumentException("User discount amount is invalid");
+        }
+        /*if (dispense.getDocument().getUserDiscountAmount() > dispense.getDocument().getPatientGrossAmount()
+            && dispense.getDocument().getUserDiscountAmount() !=  dispense.getDocument().getPatientSaleAmount()){
+            dispense.getDocument().setUserDiscountAmount(dispense.getDocument().getPatientGrossAmount());
+        }*/
+end
+
+rule "Dispense_Validation_line_validations"
+	when
+	    dispense: Dispense()
+	    dispenseLine:DispenseDocumentLine() from dispense.getDocument().getDispenseDocumentLines()
+	then
+        if (dispenseLine.getQuantity() == null || dispenseLine.getQuantity() == 0) {
+            throw new IllegalArgumentException("Quantity is invalid for item "+ dispenseLine.getName());
+        }
+        if (dispenseLine.getEnteredUserDiscount() != null && dispenseLine.getEnteredUserDiscount() < 0) {
+            throw new IllegalArgumentException("User discount is invalid for item "+ dispenseLine.getName());
+        }
+        if (dispenseLine.getPercentDiscount()) {
+            if (dispenseLine.getEnteredUserDiscount() != null && dispenseLine.getEnteredUserDiscount() > 100)
+                throw new IllegalArgumentException("User discount percentage is invalid for item "+ dispenseLine.getName());
+
+            if (dispenseLine.getEnteredUserDiscount() != null &&  dispenseLine.getEnteredUserDiscount()  > 100)
+                throw new IllegalArgumentException("User discount percentage should not be more than 100 for item "+ dispenseLine.getName());
+        }
+end
+
+rule "dispense_document_creator_can_not_be_approver"
+agenda-group "dispense_document_approver_validation"
+    when
+    $error : Error()
+    $fact  : Dispense(document.createdBy == null || (document.approvedBy != null && ((document.createdBy.login).equals(document.approvedBy.login))))
+    then
+    $error.addError("10176" );
+end

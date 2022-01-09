@@ -1,0 +1,43 @@
+{
+    "plantemplate": {
+        "properties": {
+            "active": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "boolean"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "code": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "name": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            }
+        }
+    }
+}

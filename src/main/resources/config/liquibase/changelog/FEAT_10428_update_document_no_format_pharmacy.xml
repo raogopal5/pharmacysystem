@@ -1,0 +1,39 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="20180508100100-1" author="himadharb">
+        <update tableName="sequence_format">
+            <column name="prefix" value="INV-P-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Invoice_Dispense'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="INC-P-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Invoice_Cancelled'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="RCP-P-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Receipt'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="INS-P-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Sponsor_Invoice'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="ISC-P-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Sponsor_Invoice_Cancelled'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="DIS-O-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Dispense'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="RTN-O-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Dispense_Return'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="RFN-P-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <where>document_type ='Refund'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

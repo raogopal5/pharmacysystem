@@ -1,0 +1,93 @@
+package resources.jbpm.rules;
+
+dialect "java"
+
+import org.nh.pharmacy.domain.DispenseReturn;
+import org.nh.pharmacy.domain.dto.DispensePlan;
+import org.nh.common.dto.PatientDTO;
+import org.nh.pharmacy.domain.dto.DispenseReturnDocument;
+import org.nh.pharmacy.domain.dto.DispenseReturnDocumentLine;
+import org.nh.pharmacy.domain.dto.DispenseTax;
+import org.nh.billing.domain.dto.PlanRuleDetail;
+import org.nh.billing.domain.dto.TaxDefinition;
+import org.nh.billing.domain.dto.TaxCalculation;
+
+import org.nh.billing.domain.PlanRules;
+import org.nh.billing.domain.enumeration.PlanRuleType;
+import org.nh.billing.domain.enumeration.BaseSponsorPatientType;
+import org.nh.billing.domain.enumeration.BaseSponsorPatientValueType;
+import org.nh.billing.domain.enumeration.VisitType;
+
+import org.nh.jbpm.domain.dto.Error;
+import org.nh.common.dto.UserDTO;
+
+rule "Dispense_Return_Rules_For_Each_Line"
+	salience 65599
+	when
+	    dispense: DispenseReturn()
+	    dispenseLine:DispenseReturnDocumentLine( dispenseItemPlans == null || dispenseItemPlans.isEmpty() ) from dispense.getDocument().getDispenseReturnDocumentLines()
+	then
+        insert(dispenseLine);
+end
+
+rule "Dispense_Return_Rules_Find_PlanRule_of_Drug"
+	salience 65589
+	when
+	    dispense: DispenseReturn()
+	    dispenseLine: DispenseReturnDocumentLine()
+	    patient: PatientDTO() from dispense.getDocument().getPatient()
+	    plan: PlanRules()
+	    planRuleDetail:PlanRuleDetail(planRuleType == PlanRuleType.Item, active == true,
+	    (visitType == null || visitType.contains(VisitType.OP)),(gender == null || gender == patient.getGender()),
+	    ((minQuantity == null || maxQuantity == null) || (minQuantity <= dispenseLine.getQuantity() && maxQuantity >= dispenseLine.getQuantity())),
+	    ((minAmount == null || maxAmount == null) || (minAmount <= dispenseLine.getTotalMrp() && maxAmount >= dispenseLine.getTotalMrp())),
+	    ((minAge == null || maxAge == null) || (minAge <= patient.getAge() && maxAge >= patient.getAge()))
+	    ) from plan.getPlanRuleDetailsList()
+	then
+	    insert(planRuleDetail);
+end
+
+rule "Dispense_Return_Rules_update_line_with_plan_rule"
+    when
+        dispense: DispenseReturn()
+        dispenseLine: DispenseReturnDocumentLine()
+        planRuleDetail:PlanRuleDetail(planRuleType == PlanRuleType.Item, (component == null || component.id == dispenseLine.getItemId()),
+        (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+                 (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())),
+                 (itemGroup == null || (dispenseLine.getItemGroup() != null && itemGroup.id == dispenseLine.getItemGroup().getId())), exclusion == false)
+        dispensePlan:DispensePlan()
+    then
+        dispense.updateLineWithPlanRuleDetail(dispenseLine, planRuleDetail, dispensePlan);
+end
+
+rule "Dispense_Return_Rules_reset_line_with_plan_rule"
+    when
+        dispenseLine: DispenseReturnDocumentLine()
+        planRuleDetail:PlanRuleDetail(planRuleType == PlanRuleType.Item, (component == null || component.id == dispenseLine.getItemId()),
+        (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+             (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())),
+             (itemGroup == null || (dispenseLine.getItemGroup() != null && itemGroup.id == dispenseLine.getItemGroup().getId())), exclusion == true)
+    then
+        dispenseLine.setDispenseItemPlans(null);
+end
+
+/*
+rule "Dispense_Rules_update_line_without_plan_rule"
+    salience 65569
+    when
+        dispense: DispenseReturn()
+        dispenseLine: DispenseReturnDocumentLine(isListNullOrEmpty(dispenseItemPlans) == true)
+    then
+        dispense.updateLineWithoutPlanRuleDetail(dispenseLine);
+end
+*/
+
+
+rule "dispense_return_document_creator_can_not_be_approver"
+agenda-group "dispense_return_document_approver_validation"
+    when
+    $error : Error()
+    $fact  : DispenseReturn(document.createdBy == null || (document.approvedBy != null && ((document.createdBy.login).equals(document.approvedBy.login))))
+    then
+    $error.addError("10176" );
+end

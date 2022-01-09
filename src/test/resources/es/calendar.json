@@ -1,0 +1,43 @@
+{
+    "calendar": {
+        "properties": {
+            "description": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "name": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "status": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "boolean"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            }
+        }
+    }
+}

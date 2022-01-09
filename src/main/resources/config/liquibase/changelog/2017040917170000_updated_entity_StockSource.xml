@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                            http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="2017040917170000_updated_entity_StockSource" author="Rohit">
+        <addColumn tableName="stock_source">
+            <column name="mfr_barcode" type="varchar(255)"/>
+        </addColumn>
+        <addColumn tableName="stock">
+            <column name="barcode" type="text"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,1597 @@
+{
+    "servicetaxmapping": {
+        "properties": {
+            "id": {
+                "type": "long"
+            },
+            "inclusive": {
+                "type": "boolean"
+            },
+            "service": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "applicableGender": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definingURL": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "oid": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "systemOID": {
+                                        "type": "string"
+                                    },
+                                    "systemURL": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "autoProcess": {
+                        "type": "boolean"
+                    },
+                    "billingGroup": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "actual": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "context": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "members": {
+                                "properties": {
+                                    "inactive": {
+                                        "type": "boolean"
+                                    },
+                                    "member": {
+                                        "properties": {
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "partOf": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "clinical": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "partOf": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "clinical": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "fullName": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "partOf": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "clinical": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "fullName": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "properties": {
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            },
+                                                            "definition": {
+                                                                "type": "string"
+                                                            },
+                                                            "display": {
+                                                                "type": "string"
+                                                            },
+                                                            "displayOrder": {
+                                                                "type": "long"
+                                                            },
+                                                            "id": {
+                                                                "type": "long"
+                                                            },
+                                                            "valueSet": {
+                                                                "properties": {
+                                                                    "active": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "code": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "definingURL": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "definition": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "long"
+                                                                    },
+                                                                    "modifiable": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "oid": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "source": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "systemOID": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "systemURL": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "display": {
+                                                        "type": "string"
+                                                    },
+                                                    "displayOrder": {
+                                                        "type": "long"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "valueSet": {
+                                                        "properties": {
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            },
+                                                            "definingURL": {
+                                                                "type": "string"
+                                                            },
+                                                            "definition": {
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "type": "long"
+                                                            },
+                                                            "modifiable": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "oid": {
+                                                                "type": "string"
+                                                            },
+                                                            "source": {
+                                                                "type": "string"
+                                                            },
+                                                            "systemOID": {
+                                                                "type": "string"
+                                                            },
+                                                            "systemURL": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "display": {
+                                                "type": "string"
+                                            },
+                                            "displayOrder": {
+                                                "type": "long"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "definingURL": {
+                                                        "type": "string"
+                                                    },
+                                                    "definition": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "modifiable": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "oid": {
+                                                        "type": "string"
+                                                    },
+                                                    "source": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemOID": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemURL": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "displayOrder": {
+                                        "type": "long"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definingURL": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "oid": {
+                                                "type": "string"
+                                            },
+                                            "source": {
+                                                "type": "string"
+                                            },
+                                            "systemOID": {
+                                                "type": "string"
+                                            },
+                                            "systemURL": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "consentRequired": {
+                        "type": "boolean"
+                    },
+                    "financeGroup": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "actual": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "context": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "members": {
+                                "properties": {
+                                    "inactive": {
+                                        "type": "boolean"
+                                    },
+                                    "member": {
+                                        "properties": {
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "partOf": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "clinical": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "partOf": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "clinical": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "fullName": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "partOf": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "clinical": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "fullName": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "properties": {
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            },
+                                                            "definition": {
+                                                                "type": "string"
+                                                            },
+                                                            "display": {
+                                                                "type": "string"
+                                                            },
+                                                            "displayOrder": {
+                                                                "type": "long"
+                                                            },
+                                                            "id": {
+                                                                "type": "long"
+                                                            },
+                                                            "valueSet": {
+                                                                "properties": {
+                                                                    "active": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "code": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "definingURL": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "definition": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "long"
+                                                                    },
+                                                                    "modifiable": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "oid": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "source": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "systemOID": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "systemURL": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "display": {
+                                                        "type": "string"
+                                                    },
+                                                    "displayOrder": {
+                                                        "type": "long"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "valueSet": {
+                                                        "properties": {
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            },
+                                                            "definingURL": {
+                                                                "type": "string"
+                                                            },
+                                                            "definition": {
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "type": "long"
+                                                            },
+                                                            "modifiable": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "oid": {
+                                                                "type": "string"
+                                                            },
+                                                            "source": {
+                                                                "type": "string"
+                                                            },
+                                                            "systemOID": {
+                                                                "type": "string"
+                                                            },
+                                                            "systemURL": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "display": {
+                                                "type": "string"
+                                            },
+                                            "displayOrder": {
+                                                "type": "long"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "definingURL": {
+                                                        "type": "string"
+                                                    },
+                                                    "definition": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "modifiable": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "oid": {
+                                                        "type": "string"
+                                                    },
+                                                    "source": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemOID": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemURL": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "displayOrder": {
+                                        "type": "long"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definingURL": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "oid": {
+                                                "type": "string"
+                                            },
+                                            "source": {
+                                                "type": "string"
+                                            },
+                                            "systemOID": {
+                                                "type": "string"
+                                            },
+                                            "systemURL": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "individuallyOrderable": {
+                        "type": "boolean"
+                    },
+                    "insuranceExempted": {
+                        "type": "boolean"
+                    },
+                    "minReOrderDuration": {
+                        "type": "object"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "profileService": {
+                        "type": "boolean"
+                    },
+                    "serviceDuration": {
+                        "type": "object"
+                    },
+                    "serviceGroup": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "actual": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "context": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "members": {
+                                "properties": {
+                                    "inactive": {
+                                        "type": "boolean"
+                                    },
+                                    "member": {
+                                        "properties": {
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "partOf": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "clinical": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "partOf": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "clinical": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "fullName": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "partOf": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "clinical": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "fullName": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "properties": {
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            },
+                                                            "definition": {
+                                                                "type": "string"
+                                                            },
+                                                            "display": {
+                                                                "type": "string"
+                                                            },
+                                                            "displayOrder": {
+                                                                "type": "long"
+                                                            },
+                                                            "id": {
+                                                                "type": "long"
+                                                            },
+                                                            "valueSet": {
+                                                                "properties": {
+                                                                    "active": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "code": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "definingURL": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "definition": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "long"
+                                                                    },
+                                                                    "modifiable": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "oid": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "source": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "systemOID": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "systemURL": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "display": {
+                                                        "type": "string"
+                                                    },
+                                                    "displayOrder": {
+                                                        "type": "long"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "valueSet": {
+                                                        "properties": {
+                                                            "active": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "code": {
+                                                                "type": "string"
+                                                            },
+                                                            "definingURL": {
+                                                                "type": "string"
+                                                            },
+                                                            "definition": {
+                                                                "type": "string"
+                                                            },
+                                                            "id": {
+                                                                "type": "long"
+                                                            },
+                                                            "modifiable": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "oid": {
+                                                                "type": "string"
+                                                            },
+                                                            "source": {
+                                                                "type": "string"
+                                                            },
+                                                            "systemOID": {
+                                                                "type": "string"
+                                                            },
+                                                            "systemURL": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "display": {
+                                                "type": "string"
+                                            },
+                                            "displayOrder": {
+                                                "type": "long"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "definingURL": {
+                                                        "type": "string"
+                                                    },
+                                                    "definition": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "modifiable": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "oid": {
+                                                        "type": "string"
+                                                    },
+                                                    "source": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemOID": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemURL": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "displayOrder": {
+                                        "type": "long"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definingURL": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "oid": {
+                                                "type": "string"
+                                            },
+                                            "source": {
+                                                "type": "string"
+                                            },
+                                            "systemOID": {
+                                                "type": "string"
+                                            },
+                                            "systemURL": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "serviceType": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "shortName": {
+                        "type": "string"
+                    },
+                    "visitType": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definingURL": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "oid": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "systemOID": {
+                                        "type": "string"
+                                    },
+                                    "systemURL": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "taxDefinition": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "taxCalculation": {
+                        "properties": {
+                            "amount": {
+                                "type": "double"
+                            },
+                            "percentage": {
+                                "type": "double"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "taxComponent": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "taxtype": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "validFrom": {
+                        "type": "date",
+                        "format": "strict_date_optional_time||epoch_millis"
+                    },
+                    "validTo": {
+                        "type": "date",
+                        "format": "strict_date_optional_time||epoch_millis"
+                    }
+                }
+            },
+            "taxMapping": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    }
+                }
+            },
+            "unit": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "clinical": {
+                        "type": "boolean"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partOf": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "clinical": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "partOf": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "clinical": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "display": {
+                                                "type": "string"
+                                            },
+                                            "displayOrder": {
+                                                "type": "long"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "definingURL": {
+                                                        "type": "string"
+                                                    },
+                                                    "definition": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "modifiable": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "oid": {
+                                                        "type": "string"
+                                                    },
+                                                    "source": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemOID": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemURL": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "displayOrder": {
+                                        "type": "long"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definingURL": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "oid": {
+                                                "type": "string"
+                                            },
+                                            "source": {
+                                                "type": "string"
+                                            },
+                                            "systemOID": {
+                                                "type": "string"
+                                            },
+                                            "systemURL": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definingURL": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "oid": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "systemOID": {
+                                        "type": "string"
+                                    },
+                                    "systemURL": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

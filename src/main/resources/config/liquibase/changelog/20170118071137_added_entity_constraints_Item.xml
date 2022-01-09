@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Item.
+    -->
+    <changeSet id="20170118071137-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="item"
+                                 constraintName="fk_item_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="material_group_id"
+                                 baseTableName="item"
+                                 constraintName="fk_item_material_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="group_master"/>
+
+        <addForeignKeyConstraint baseColumnNames="purchaseuom_id"
+                                 baseTableName="item"
+                                 constraintName="fk_item_purchaseuom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="saleuom_id"
+                                 baseTableName="item"
+                                 constraintName="fk_item_saleuom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="trackuom_id"
+                                 baseTableName="item"
+                                 constraintName="fk_item_trackuom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+    </changeSet>
+</databaseChangeLog>

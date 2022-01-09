@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+    <property name="boolean" value="bool" dbms="postgresql" />
+    <property name="boolean" value="bit" dbms="mysql,h2,oracle" />
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <changeSet id="00000000000001-csv-test-data" author="msuresh">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/unit.csv"
+                  separator=";"
+                  tableName="organization"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/location.csv"
+                  separator=";"
+                  tableName="location"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/hsc.csv"
+                  separator=";"
+                  tableName="healthcare_service_center"/>
+    </changeSet>
+
+    <changeSet id="00000000000001-csv-test-data-1" author="rohit">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/uom.csv"
+                  separator=";"
+                  tableName="uom"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/group.csv"
+                  separator=";"
+                  tableName="group_master"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/item_category.csv"
+                  separator=";"
+                  tableName="item_category"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/item.csv"
+                  separator=";"
+                  tableName="item"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/locator.csv"
+                  separator=";"
+                  tableName="locator"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/stock.csv"
+                  separator=";"
+                  tableName="stock"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/item_unit_average_cost.csv"
+                  separator=";"
+                  tableName="item_unit_average_cost"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/item_store_stock_view.csv"
+                  separator=";"
+                  tableName="item_store_stock_view"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/stock_flow.csv"
+                  separator=";"
+                  tableName="stock_flow"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/stock_source.csv"
+                  separator=";"
+                  tableName="stock_source"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/sql/item_store_locator.csv"
+                  separator=";"
+                  tableName="item_store_locator_map"/>
+    </changeSet>
+
+    <changeSet id="00000000000001-test" author="gbhat">
+        <sqlFile path="config/liquibase/sql/UserGroupInsert.sql" encoding="UTF-8" />
+    </changeSet>
+
+</databaseChangeLog>

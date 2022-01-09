@@ -1,0 +1,9 @@
+{
+    "type": "text",
+    "analyzer": "word_analyzer",
+    "fields": {
+        "raw": {
+            "type": "double"
+        }
+    }
+}

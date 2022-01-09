@@ -1,0 +1,4 @@
+id;item_id;batch_no;expiry_date;owner;cost;mrp;quantity;stock_value;store_id;locator_id;supplier;uom_id;sku;consignment;unit_id;original_batch_no;original_mrp;original_expiry_date;barcode
+51;1;BTH12345;2019-05-30;HUL;100;80;1000;100000;1;1;HUL;1;HUL~1~BTH12345~2019-05-30~100.0~80.0~true;t;3;BTH12345;80.0;2019-05-30;
+52;2;BTH12345;2019-05-30;HUL;100;80;2779;277900;1;1;HUL;1;HUL~2~BTH12345~2019-05-30~100.0~80.0~true;t;3;BTH12345;80.0;2019-05-30;
+53;1;BTH12345;2019-05-30;HUL;100;80;2779;277900;2;1;HUL;1;HUL~2~BTH12345~2019-05-30~100.0~80.0~true;t;3;BTH12345;80.0;2019-05-30;

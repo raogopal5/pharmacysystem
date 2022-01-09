@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "unitCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "documentNumber",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transactionDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180924162620",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "stock_source_header",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

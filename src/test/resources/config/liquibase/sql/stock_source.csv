@@ -1,0 +1,3 @@
+id;item_id;uom_id;sku;batch_no;expiry_date;owner;cost;mrp;transaction_type;transaction_ref_no;first_stock_in_date;last_stock_out_date;consignment;quantity;available_quantity;supplier;tax_name;tax_per_unit;tax_type;bar_code;original_batch_no;original_mrp;original_expiry_date;mfr_barcode
+129;1;1;HUL~83~BTH12345~2019-05-30~100.0~80.0~true;BTH12345;2019-05-30;HUL;100;80;GRN;MDR8001-8001;2017-07-03;null;t;1000;1000;HUL;null;null;null;88001;BTH12345;80;2019-05-30;null
+130;2;1;HUL~84~BTH12345~2019-05-30~100.0~80.0~true;BTH12345;2019-05-30;HUL;100;80;GRN;MDR8001-8001;2017-07-03;null;t;2779;2779;HUL;null;null;null;88001;BTH12345;80;2019-05-30;null

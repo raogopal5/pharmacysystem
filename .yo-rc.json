@@ -1,0 +1,45 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.nh.pharmacy"
+    },
+    "jhipsterVersion": "6.8.0",
+    "baseName": "pharmacy",
+    "packageName": "org.nh.pharmacy",
+    "packageFolder": "org/nh/pharmacy",
+    "serverPort": "8083",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uaa",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "jwtSecretKey": "2d97a55068b458d49df55d995a1b2c44d39e77ad",
+    "enableTranslation": false,
+    "applicationType": "microservice",
+    "testFrameworks": ["gatling", "cucumber"],
+    "jhiPrefix": "jhi",
+    "skipClient": true,
+    "skipUserManagement": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angular2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1583476478168,
+    "blueprints": [],
+    "otherModules": []
+  },
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "javers"
+  }
+}

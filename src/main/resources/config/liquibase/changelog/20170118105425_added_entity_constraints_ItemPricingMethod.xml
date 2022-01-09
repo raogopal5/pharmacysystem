@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ItemPricingMethod.
+    -->
+    <changeSet id="20170118105425-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="organization_id"
+                                 baseTableName="item_pricing_method"
+                                 constraintName="fk_item_pricing_method_organization_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_id"
+                                 baseTableName="item_pricing_method"
+                                 constraintName="fk_item_pricing_method_item_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item"/>
+
+    </changeSet>
+</databaseChangeLog>

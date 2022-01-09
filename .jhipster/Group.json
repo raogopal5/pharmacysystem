@@ -1,0 +1,66 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "partOf",
+            "otherEntityName": "Organization",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "groupMaster"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "actual",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "context",
+            "fieldType": "Context",
+            "fieldValues": "Indent_Approval_Committee, Issue_Notification_Committee"
+        },
+        {
+            "fieldName": "members",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170109161145",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "group_master",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

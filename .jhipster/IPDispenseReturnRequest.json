@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "documentNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "latest",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20190124122927",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "ipdispense_return_request",
+    "pagination": "infinite-scroll",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch"
+}

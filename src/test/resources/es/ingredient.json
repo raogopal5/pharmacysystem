@@ -1,0 +1,309 @@
+{
+    "ingredient": {
+        "properties": {
+            "amount": {
+                "type": "double"
+            },
+            "id": {
+                "type": "long"
+            },
+            "item": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "batchTracked": {
+                        "type": "boolean"
+                    },
+                    "category": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "dispensableGenericName": {
+                        "type": "string"
+                    },
+                    "expiryDateRequired": {
+                        "type": "boolean"
+                    },
+                    "group": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "manufacturer": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "purchaseUOM": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "conversionFactor": {
+                                "type": "double"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "uomType": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "saleUOM": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "conversionFactor": {
+                                "type": "double"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "uomType": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "trackUOM": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "conversionFactor": {
+                                "type": "double"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "uomType": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

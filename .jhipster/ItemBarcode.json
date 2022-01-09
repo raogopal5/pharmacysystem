@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "itemName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "barcode",
+            "fieldType": "String"
+        }
+
+    ],
+    "changelogDate": "20171116052400",
+    "dto": "no",
+    "entityTableName": "item_barcode",
+    "microserviceName": "pharmacy",
+    "enableEntityAudit": false
+}

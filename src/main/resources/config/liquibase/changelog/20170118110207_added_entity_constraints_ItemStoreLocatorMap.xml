@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ItemStoreLocatorMap.
+    -->
+    <changeSet id="20170118110207-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="item_id"
+                                 baseTableName="item_store_locator_map"
+                                 constraintName="fk_item_store_locator_map_item_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item"/>
+
+        <addForeignKeyConstraint baseColumnNames="health_care_service_center_id"
+                                 baseTableName="item_store_locator_map"
+                                 constraintName="fk_item_store_locator_map_health_care_service_center_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="healthcare_service_center"/>
+
+        <addForeignKeyConstraint baseColumnNames="locator_id"
+                                 baseTableName="item_store_locator_map"
+                                 constraintName="fk_item_store_locator_map_locator_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="locator"/>
+
+        <addUniqueConstraint columnNames="item_id, health_care_service_center_id, locator_id"
+                             tableName="item_store_locator_map"/>
+
+    </changeSet>
+</databaseChangeLog>

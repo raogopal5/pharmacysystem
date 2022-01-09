@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity IPDispenseReturnRequest.
+    -->
+    <changeSet id="20190124122927-1" author="srinivas">
+        <createTable tableName="ipdispense_return_request">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="document_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="document" type="jsonb">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="version" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="latest" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+    <changeSet id="201901252025-1" author="srinivas">
+        <dropPrimaryKey tableName="ipdispense_return_request" />
+
+        <addPrimaryKey columnNames="id, version"
+                       tableName="ipdispense_return_request"/>
+    </changeSet>
+
+    <changeSet id="202005261030-1" author="srinivas">
+        <addColumn tableName="ipdispense_return_request">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <sql>
+            CREATE trigger ipdispense_return_request_iu_datetime_trigger
+            before insert or update on ipdispense_return_request
+            for each row
+            execute procedure update_iu_datetime();
+        </sql>
+    </changeSet>
+</databaseChangeLog>

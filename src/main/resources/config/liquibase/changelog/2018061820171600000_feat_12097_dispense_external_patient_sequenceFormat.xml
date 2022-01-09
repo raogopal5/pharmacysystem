@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <changeSet id="dispense_external_patient_sequenceFormat_1" author="Nirbhay">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="DispenseExternalPatientNumber"/>
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|&lt;YY&gt;"/>
+            <column name="prefix" value="EXT-P-|&lt;UNIT_CODE&gt;|&lt;YY&gt;"/>
+            <column name="padding" value="9"/>
+            <column name="organization_code" value="NH"/>
+            <column name="delimiter" value="|"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="dispense_external_patient_sequenceFormat_2" author="Nirbhay">
+        <update tableName="sequence_format">
+            <column name="padding" value="5"/>
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|&lt;YY&gt;"/>
+            <column name="prefix" value="ED|&lt;UNIT_CODE&gt;|&lt;YY&gt;"/>
+            <where>document_type='DispenseExternalPatientNumber'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

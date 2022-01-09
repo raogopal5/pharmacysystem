@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity HSCGroupMapping.
+    -->
+    <changeSet id="20170313110653-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="healthcare_service_center_id"
+                                 baseTableName="hsc_group_mapping"
+                                 constraintName="fk_hscgroup_mapping_healthcare_service_center_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="healthcare_service_center"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="hsc_group_mapping"
+                                 constraintName="fk_hscgroup_mapping_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="group_master"/>
+
+    </changeSet>
+</databaseChangeLog>

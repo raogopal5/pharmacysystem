@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!-- Added the constraints for entity Store. -->
+
+    <changeSet id="20170720120000_added_entity_constraints_Store" author="Naina">
+
+        <addForeignKeyConstraint baseColumnNames="item_id"
+                                 baseTableName="stock"
+                                 constraintName="fk_stock_item_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item"/>
+
+        <addForeignKeyConstraint baseColumnNames="store_id"
+                                 baseTableName="stock"
+                                 constraintName="fk_stock_store_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="healthcare_service_center"/>
+
+        <addForeignKeyConstraint baseColumnNames="locator_id"
+                                 baseTableName="stock"
+                                 constraintName="fk_stock_locator_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="locator"/>
+
+        <addForeignKeyConstraint baseColumnNames="uom_id"
+                                 baseTableName="stock"
+                                 constraintName="fk_stock_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="unit_id"
+                                 baseTableName="stock"
+                                 constraintName="fk_stock_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+
+    </changeSet>
+</databaseChangeLog>

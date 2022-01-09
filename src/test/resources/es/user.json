@@ -1,0 +1,377 @@
+{
+    "user": {
+        "properties": {
+            "active": {
+                "type": "boolean"
+            },
+            "createdBy": {
+                "properties": {
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "employeeNo": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "login": {
+                        "type": "string"
+                    }
+                }
+            },
+            "createdDatetime": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "dateOfBirth": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "department": {
+                "properties": {
+                    "active": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "boolean"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "code": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "fullName": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "name": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "type": {
+                        "properties": {
+                            "active": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "code": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "display": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "designation": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "displayName": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "email": {
+                "type": "string"
+            },
+            "employeeNo": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "firstName": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "gender": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "definition": {
+                        "type": "string"
+                    },
+                    "display": {
+                        "type": "string"
+                    },
+                    "displayOrder": {
+                        "type": "long"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "valueSet": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definingURL": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "modifiable": {
+                                "type": "boolean"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "oid": {
+                                "type": "string"
+                            },
+                            "source": {
+                                "type": "string"
+                            },
+                            "systemOID": {
+                                "type": "string"
+                            },
+                            "systemURL": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "hisUser": {
+                "type": "boolean"
+            },
+            "id": {
+                "type": "long"
+            },
+            "jobTitle": {
+                "type": "string"
+            },
+            "lastName": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "login": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "mobileNo": {
+                "type": "string"
+            },
+            "modifiedBy": {
+                "properties": {
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "employeeNo": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "login": {
+                        "type": "string"
+                    }
+                }
+            },
+            "modifiedDatetime": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "prefix": {
+                "type": "string"
+            },
+            "qualification": {
+                "type": "string"
+            },
+            "remarks": {
+                "type": "string"
+            },
+            "signature": {
+                "type": "string"
+            },
+            "status": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "userType": {
+                "type": "string"
+            }
+        }
+    }
+}

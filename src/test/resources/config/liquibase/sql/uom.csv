@@ -1,0 +1,2 @@
+id;code;name;active;conversion_factor;uom_type;created_for_id;baseuom_id
+1;EA;Each;f;1.0;{"id": 33, "code": "kind", "active": true, "display": "Kind"};3;null

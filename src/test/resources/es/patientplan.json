@@ -1,0 +1,968 @@
+{
+    "patientplan": {
+        "properties": {
+            "patient": {
+                "type": "object"
+            },
+            "plan": {
+                "properties": {
+                    "active": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "boolean"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "code": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "insuranceCompany": {
+                        "properties": {
+                            "active": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "code": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "fullName": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "name": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "display": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "partOf": {
+                        "properties": {
+                            "active": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "code": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "insuranceCompany": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "fullName": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "display": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "code": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "name": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "sponsor": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "fullName": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "display": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "code": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "planTemplate": {
+                        "properties": {
+                            "active": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "code": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "insuranceCompany": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "fullName": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "display": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "code": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "name": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "sponsor": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "fullName": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "display": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "code": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "fields": {
+                                                            "raw": {
+                                                                "type": "string",
+                                                                "index": "not_analyzed"
+                                                            },
+                                                            "sort": {
+                                                                "type": "string",
+                                                                "analyzer": "ducet_sort"
+                                                            }
+                                                        },
+                                                        "analyzer": "word_analyzer"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "sponsor": {
+                        "properties": {
+                            "active": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "code": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "fullName": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "name": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "display": {
+                                        "type": "string",
+                                        "fields": {
+                                            "raw": {
+                                                "type": "string",
+                                                "index": "not_analyzed"
+                                            },
+                                            "sort": {
+                                                "type": "string",
+                                                "analyzer": "ducet_sort"
+                                            }
+                                        },
+                                        "analyzer": "word_analyzer"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "fields": {
+                                                    "raw": {
+                                                        "type": "string",
+                                                        "index": "not_analyzed"
+                                                    },
+                                                    "sort": {
+                                                        "type": "string",
+                                                        "analyzer": "ducet_sort"
+                                                    }
+                                                },
+                                                "analyzer": "word_analyzer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "policyNumber": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            }
+        }
+    }
+}

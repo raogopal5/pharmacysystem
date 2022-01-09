@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <changeSet id="sequence_format_dml" author="Nirbhay">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Indent" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SRQ-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-0" author="rohit">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Receipt" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SRC-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-1" author="gbhat">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Consumption" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SCP-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-2" author="Nirbhay">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Reversal" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SRV-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-3" author="gbhat">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Audit_Plan" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SAP-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Audit" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SAD-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-4" author="Nitesh">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Issue" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SIS-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Direct_Transfer" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="STR-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-5" author="Nitesh">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Inventory_Adjustment" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <column name="prefix" value="SAJ-" />
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence_format_dml-6" author="Nirbhay">
+        <update tableName="sequence_format">
+            <column name="prefix" value="SRC-|&lt;RECEIPT_SOURCE&gt;|-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Receipt'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SRV-|&lt;REVERSAL_SOURCE&gt;|-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Reversal'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SRQ-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Indent'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SCP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Consumption'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SAP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Audit_Plan'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SAD-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Audit'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SIS-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Issue'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="STR-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Stock_Direct_Transfer'</where>
+        </update>
+
+        <update tableName="sequence_format">
+            <column name="prefix" value="SAJ-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;" />
+            <where>document_type ='Inventory_Adjustment'</where>
+        </update>
+    </changeSet>
+    <changeSet id="20190731162430-stock-consumption-documentNumber" author="Krishna">
+        <insert tableName="sequence_expression">
+            <column name="id" valueSequenceNext="sequence_expression_id_seq"/>
+            <column name="tag" value="CONSUMPTION_UNIT_CODE" />
+            <column name="expression" value="document.consumptionUnit.code" />
+            <column name="type" value="ENTITY" />
+        </insert>
+        <update tableName="sequence_format">
+            <column name="reset_expression" value="&lt;CONSUMPTION_UNIT_CODE&gt;|-|&lt;YY&gt;"/>
+            <column name="prefix" value="SCP-|&lt;CONSUMPTION_UNIT_CODE&gt;|-|&lt;YY&gt;"/>
+            <where>document_type='Stock_Consumption'</where>
+        </update>
+    </changeSet>
+
+    <changeSet id="reversal_consumption_sequence_format_dml" author="Nirbhay">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Stock_Reversal_Consumption" />
+            <column name="reset_expression" value="&lt;CONSUMPTION_UNIT_CODE&gt;|-|&lt;YY&gt;"/>
+            <column name="prefix" value="CPR-|&lt;CONSUMPTION_UNIT_CODE&gt;|-|&lt;YY&gt;"/>
+            <column name="padding" value="5" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="update_reversal_consumption_sequence_format_dml" author="Nirbhay">
+        <update tableName="sequence_format">
+            <column name="reset_expression" value="&lt;CONSUMPTION_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <column name="prefix" value="CPR-|&lt;CONSUMPTION_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <column name="padding" value="6" />
+            <where>document_type='Stock_Reversal_Consumption'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

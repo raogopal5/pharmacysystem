@@ -1,0 +1,2 @@
+id;name;code;active;actual;members;group_type;part_of_id
+11;Pharmacy;MED-PH;t;t;[];{"id": 33, "code": "kind", "active": true, "display": "Kind"};3

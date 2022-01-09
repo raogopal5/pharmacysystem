@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+
+    <changeSet id="sequence_format_remove-1" author="himadharb">
+        <update tableName="sequence_format">
+            <column name="prefix" value="INVP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Invoice_Dispense'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="INCP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Invoice_Cancelled'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="RCPP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Receipt'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="INSP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Sponsor_Invoice'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="ISCP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Sponsor_Invoice_Cancelled'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="DISO-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Dispense'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="RTNO-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type ='Dispense_Return'</where>
+        </update>
+        <update tableName="sequence_format">
+            <column name="prefix" value="RFNP-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <where>document_type ='Refund'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

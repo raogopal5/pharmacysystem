@@ -1,0 +1,431 @@
+{
+    "organization": {
+        "properties": {
+            "active": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "boolean"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "attributes": {
+                "properties": {
+                    "customer_code": {
+                        "type": "string"
+                    },
+                    "vendor_code": {
+                        "type": "string"
+                    }
+                }
+            },
+            "clinical": {
+                "type": "boolean"
+            },
+            "code": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "fullName": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "id": {
+                "type": "long"
+            },
+            "name": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "partOf": {
+                "properties": {
+                    "active": {
+                        "type": "boolean"
+                    },
+                    "clinical": {
+                        "type": "boolean"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partOf": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "clinical": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "partOf": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "clinical": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "display": {
+                                                "type": "string"
+                                            },
+                                            "displayOrder": {
+                                                "type": "long"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "valueSet": {
+                                                "properties": {
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "code": {
+                                                        "type": "string"
+                                                    },
+                                                    "definingURL": {
+                                                        "type": "string"
+                                                    },
+                                                    "definition": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "long"
+                                                    },
+                                                    "modifiable": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "oid": {
+                                                        "type": "string"
+                                                    },
+                                                    "source": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemOID": {
+                                                        "type": "string"
+                                                    },
+                                                    "systemURL": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "type": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "display": {
+                                        "type": "string"
+                                    },
+                                    "displayOrder": {
+                                        "type": "long"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "valueSet": {
+                                        "properties": {
+                                            "active": {
+                                                "type": "boolean"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "definingURL": {
+                                                "type": "string"
+                                            },
+                                            "definition": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "modifiable": {
+                                                "type": "boolean"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "oid": {
+                                                "type": "string"
+                                            },
+                                            "source": {
+                                                "type": "string"
+                                            },
+                                            "systemOID": {
+                                                "type": "string"
+                                            },
+                                            "systemURL": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "type": {
+                        "properties": {
+                            "active": {
+                                "type": "boolean"
+                            },
+                            "code": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "displayOrder": {
+                                "type": "long"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "valueSet": {
+                                "properties": {
+                                    "active": {
+                                        "type": "boolean"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "definingURL": {
+                                        "type": "string"
+                                    },
+                                    "definition": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "long"
+                                    },
+                                    "modifiable": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "oid": {
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "type": "string"
+                                    },
+                                    "systemOID": {
+                                        "type": "string"
+                                    },
+                                    "systemURL": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "type": {
+                "properties": {
+                    "active": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "boolean"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "code": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "definition": {
+                        "type": "string"
+                    },
+                    "display": {
+                        "type": "string",
+                        "fields": {
+                            "raw": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "sort": {
+                                "type": "string",
+                                "analyzer": "ducet_sort"
+                            }
+                        },
+                        "analyzer": "word_analyzer"
+                    },
+                    "displayOrder": {
+                        "type": "long"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "valueSet": {
+                        "properties": {
+                            "active": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "code": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "definingURL": {
+                                "type": "string"
+                            },
+                            "definition": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "modifiable": {
+                                "type": "boolean"
+                            },
+                            "name": {
+                                "type": "string",
+                                "fields": {
+                                    "raw": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "sort": {
+                                        "type": "string",
+                                        "analyzer": "ducet_sort"
+                                    }
+                                },
+                                "analyzer": "word_analyzer"
+                            },
+                            "oid": {
+                                "type": "string"
+                            },
+                            "source": {
+                                "type": "string"
+                            },
+                            "systemOID": {
+                                "type": "string"
+                            },
+                            "systemURL": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

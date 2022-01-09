@@ -1,0 +1,87 @@
+package org.nh.pharmacy.exception.constants;
+
+/**
+ * Created by Nitesh on 6/21/17.
+ */
+public class PharmacyErrorCodes {
+    public static final String NULL_FROM_STORE = "10001";
+    public static final String NULL_TO_STORE = "10002";
+    public static final String NULL_FROM_UNIT = "10003";
+    public static final String NULL_TO_UNIT = "10004";
+    public static final String NULL_DOCUMENT_TYPE= "10005";
+    public static final String NULL_INDENTER_NAME = "10006";
+    public static final String NULL_CREATED_DATE = "10007";
+    public static final String NULL_ITEM = "10008";
+    public static final String NULL_UOM = "10009";
+    public static final String NULL_QUANTITY = "10010";
+    public static final String NULL_QUANTITY_AND_UOM = "10011";
+    public static final String NULL_INDENT_DOCUMENT_LINES = "10012";
+    public static final String NULL_ITEM_ID_FOR_NOT_GENERIC_ITEM = "10013";
+    public static final String NULL_ITEM_NAME_FOR_GENERIC_ITEM = "10014";
+    public static final String NULL_STATUS = "10015";
+    public static final String INVALID_UOM = "10016";
+    public static final String UNAVAILABLE_ITEM = "10017";
+    public static final String ADDING_DUPLICATE_RECORDS = "10018";
+    public static final String NOT_NUMERIC_VALUE = "10019";
+    public static final String NULL_ISSUER_NAME = "10023";
+    public static final String NULL_ISSUE_DOCUMENT_LINES = "10024";
+    public static final String NULL_RECEIVER_NAME = "10025";
+    public static final String NULL_RECEIPT_DOCUMENT_LINES = "10026";
+    public static final String NULL_CONSUMPTION_STORE ="10027";
+    public static final String NULL_FOR_HSC = "10028";
+    public static final String NULL_CONSUMPTION_UNIT = "10029";
+    public static final String NULL_FOR_DEPARTMENT = "10030";
+    public static final String NULL_CONSUMEDBY = "10031";
+    public static final String NULL_CONSUMPTION_DOCUMENT_LINES = "10032";
+    public static final String SUM_OF_ACCEPTED_REJECTED_QUANTITY_MISMATCH_WITH_PENDING_QUANTITY = "10033";
+
+    public static final String ZERO_ISSUED_QUANTITY_IN_ALL_LINES = "10034";
+    public static final String ALL_CONSUMED_QUANTITY_MUST_BE_POSITIVE = "10035";
+    public static final String NULL_STORE = "10036";
+    public static final String NULL_UNIT = "10037";
+    public static final String NULL_NAME = "10038";
+    public static final String ALL_ADJUST_QUANTITY_MUST_BE_POSITIVE = "10039";
+    public static final String NULL_ADJUSTMENT_DOCUMENT_LINES = "10040";
+    public static final String ALL_INDENT_QUANTITY_MUST_BE_POSITIVE = "10041";
+    public static final String ALL_CORRECTION_QUANTITY_MUST_BE_POSITIVE = "10042";
+    public static final String NULL_CORRECTION_DOCUMENT_LINES = "10043";
+    public static final String ZERO_RECEIPT_QUANTITY_IN_ALL_LINES = "10044";
+    public static final String INDENT_NOT_ALLOWED = "10045";
+    public static final String FOUND_DUPLICATE_ITEM = "10046";
+    public static final String INSUFFICIENT_STOCK_FOR_ITEM_BATCH = "10047";
+    public static final String SUM_OF_ACCEPTED_REJECTED_QUANTITY_MISMATCH_WITH_ISSUED_QUANTITY = "10048";
+    public static final String SUM_OF_ISSUED_QUANTITY_MISMATCH_WITH_REQUESTED_QUANTITY = "10049";
+    public static final String STOCK_DETAIL_NOT_FOUND = "10050";
+    public static final String NULL_FROM_BATCH = "10051";
+    public static final String NULL_TO_BATCH = "10052";
+    public static final String NULL_FROM_MRP = "10053";
+    public static final String SUM_OF_REVERSAL_QUANTITY_MORE_THAN_CONSUMPTION_QUANTITY = "10223";
+    public static final String RECEIVED_QUANTITY_IS_MORE_THAN_ISSUED_QUANTITY = "10224";
+    public static final String NULL_TO_MRP = "10054";
+    public static final String NULL_FROM_EXPIRY_DATE = "10055";
+    public static final String NULL_TO_EXPIRY_DATE = "10056";
+    public static final String INVALID_DISCREPENCY_REASON = "10057";
+    public static final String INDENT_NOT_ALLOWED_FOR_OPEN_REVERSAL = "10058";
+    public static final String INVALID_USER = "10059";
+    public static final String NULL_AUDIT_QUANTITY = "10060";
+    public static final String NULL_DISCREPANCY_REASON = "10061";
+    public static final String ITEM_NOT_FOUND_FOR_GIVEN_CRITERIA = "10062";
+    public static final String INVALID_ITEM_CODE = "10063" ;
+    public static final String NULL_ITEM_CODE = "10064";
+    public static final String SELECTED_ITEMS_ARE_RESERVED = "10065";
+    public static final String ANOTHER_CORRECTION_IN_PROGRESS = "10066";
+    public static final String NULL_STOCK_ID = "10067";
+    public static final String INVALID_DOCUMENT = "10069";
+    public static final String NULL_AUDITING_USER = "10070";
+    public static final String INVALID_AUDIT_QUANTITY = "10072";
+    public static final String EXTRA_ITEM_FOUND = "10073";
+    public static final String UOM_NOT_SUPPORTED = "10074";
+    public static final String ZERO_INDENT_VALUE = "10076";
+    public static final String INVALID_LINE = "10077";
+    public static final String PAYMENT_DETAILS_NOT_FOUND = "10078";
+    public static final String ITEM_NOT_MAPPED_TO_STORE = "10079";
+    public static final String STOCK_NOT_AVAILABLE_FOR_ITEM_AND_STORE = "10080";
+    public static final String GROUP_NOT_FOUND = "10084";
+    public static final String NO_DISCREPENCY_REASONS  = "10099";
+    public static final String PLUTUS_TIME_OUT  = "10100";
+}

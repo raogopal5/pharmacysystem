@@ -1,0 +1,57 @@
+package org.nh.pharmacy.dispense;
+
+dialect "java"
+
+import org.nh.pharmacy.domain.DispenseReturn;
+import org.nh.pharmacy.domain.dto.DispenseReturnDocument;
+import org.nh.pharmacy.domain.dto.DispenseReturnDocumentLine;
+
+import static org.nh.common.util.BigDecimalUtil.*;
+
+rule "Dispense__Return_Validation_items_not_empty"
+	salience 65599
+	when
+	    dispense: DispenseReturn()
+	then
+        /*if (dispense.getDocument().getDispenseReturnDocumentLines().isEmpty()) {
+            throw new IllegalArgumentException("At-least one item should be available for dispense");
+        }*/
+        System.out.println(">>>>>>>>>>>>>>>>>>>>Dispense__Return_Validation_items_not_empty::::");
+        if (dispense.getDocument().getUnitDiscountPercentage() > 100
+            || dispense.getDocument().getUnitDiscountPercentage() < 0) {
+            throw new IllegalArgumentException("Unit discount percentage is invalid");
+        }
+        if (dispense.getDocument().getUserDiscountPercentage() > 100
+            || dispense.getDocument().getUserDiscountPercentage() < 0) {
+            throw new IllegalArgumentException("User discount percentage is invalid");
+        }
+        if (ltZero(dispense.getDocument().getUserDiscountAmount())){
+            throw new IllegalArgumentException("User discount amount is invalid");
+        }
+        /*if (dispense.getDocument().getUserDiscountAmount() > dispense.getDocument().getPatientGrossAmount()
+            && dispense.getDocument().getUserDiscountAmount() !=  dispense.getDocument().getPatientSaleAmount()){
+            dispense.getDocument().setUserDiscountAmount(dispense.getDocument().getPatientGrossAmount());
+        }*/
+end
+
+rule "Dispense__Return_Validation_line_validations"
+	when
+	    dispense: DispenseReturn()
+	    dispenseLine:DispenseReturnDocumentLine() from dispense.getDocument().getDispenseReturnDocumentLines()
+	then
+        /* if (dispenseLine.getQuantity() == null || dispenseLine.getQuantity() == 0) {
+            throw new IllegalArgumentException("Quantity is invalid for item "+ dispenseLine.getName());
+        }*/
+        if (dispenseLine.getEnteredUserDiscount() != null && dispenseLine.getEnteredUserDiscount() < 0) {
+            throw new IllegalArgumentException("User discount is invalid for item "+ dispenseLine.getName());
+        }
+        if (dispenseLine.getPercentDiscount()) {
+            if (dispenseLine.getEnteredUserDiscount() != null && dispenseLine.getEnteredUserDiscount() > 100)
+                throw new IllegalArgumentException("User discount percentage is invalid for item "+ dispenseLine.getName());
+
+            if (dispenseLine.getUnitDiscount() != null && dispenseLine.getUserDiscount() != null
+                &&  gt(add(dispenseLine.getUserDiscount(), dispenseLine.getUnitDiscount()), getBigDecimal(100f)))
+                throw new IllegalArgumentException("Sum of Unit and User discount percentage should not be more than 100 for item "+ dispenseLine.getName());
+        }
+end
+

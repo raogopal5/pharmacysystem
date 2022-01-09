@@ -1,0 +1,72 @@
+{
+    "itemstorestockview": {
+        "properties": {
+            "availableStock": {
+                "type": "double"
+            },
+            "code": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "consumedQtyCurrMonth": {
+                "type": "double"
+            },
+            "consumedQtyLastMonth": {
+                "type": "double"
+            },
+            "id": {
+                "type": "long"
+            },
+            "itemId": {
+                "type": "long"
+            },
+            "name": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "sort": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "stocklastSyncDate": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "store": {
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "transitQty": {
+                "type": "double"
+            },
+            "type": {
+                "type": "string"
+            }
+        }
+    }
+}

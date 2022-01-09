@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "unitId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "itemId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "averageCost",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170221113156",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "item_unit_average_cost",
+    "microserviceName": "pharmacy",
+    "pagination": "no",
+    "microserviceName": "pharmacy",
+    "searchEngine": "no",
+    "enableEntityAudit": false
+}

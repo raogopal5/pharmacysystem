@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!--
+          Added the entity Organization.
+      -->
+    <changeSet id="20170226110406-FEAT317" author="Prashanth">
+        <addColumn tableName="organization">
+            <column name="started_on" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="clinical" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="license_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="website" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+        </addColumn>
+
+    </changeSet>
+</databaseChangeLog>

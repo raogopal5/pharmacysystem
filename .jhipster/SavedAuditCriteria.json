@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "fields": [
+        {
+            "fieldName": "auditCriterias",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unit",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171212190000",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination":"no",
+    "entityTableName": "saved_audit_criterias",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

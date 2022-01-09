@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "holidays",
+            "otherEntityName": "Holidays",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "Calendar",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "createdFor",
+            "otherEntityName": "Organization",
+            "relationshipType": "many-to-one",
+            "otherEntityRelationshipName": "Calendar",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "organizationType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170202112620",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "calendar",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

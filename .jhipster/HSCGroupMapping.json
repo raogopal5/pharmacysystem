@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "healthcareServiceCenter",
+            "otherEntityName": "HealthcareServiceCenter",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "HSCGroupMapping",
+            "relationshipValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "relationshipName": "group",
+            "otherEntityName": "Group",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "HSCGroupMapping",
+            "relationshipValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "effectiveFrom",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170303110653",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "hsc_group_mapping",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

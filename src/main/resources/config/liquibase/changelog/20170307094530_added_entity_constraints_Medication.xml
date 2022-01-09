@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Medication.
+    -->
+    <changeSet id="20170307094530-2" author="Nirbhay">
+
+        <addForeignKeyConstraint baseColumnNames="dispensing_uom_id"
+                                 baseTableName="medication"
+                                 constraintName="fk_medication_dispensing_uom_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uom"/>
+
+        <addForeignKeyConstraint baseColumnNames="generic_id"
+                                 baseTableName="medication"
+                                 constraintName="fk_medication_generic_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medication"/>
+
+        <addForeignKeyConstraint baseColumnNames="medications_id"
+                                 baseTableName="medication_ingredients"
+                                 constraintName="fk_medication_ingredients_medications_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medication"/>
+        <addForeignKeyConstraint baseColumnNames="ingredients_id"
+                                 baseTableName="medication_ingredients"
+                                 constraintName="fk_medication_ingredients_ingredients_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingredient"/>
+
+        <addForeignKeyConstraint baseColumnNames="created_for_id"
+                                 baseTableName="medication"
+                                 constraintName="fk_medication_created_for_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organization"/>
+
+    </changeSet>
+</databaseChangeLog>

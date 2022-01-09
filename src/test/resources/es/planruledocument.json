@@ -1,0 +1,211 @@
+{
+    "planruledocument": {
+        "properties": {
+            "active": {
+                "type": "boolean"
+            },
+            "addOnParameter": {
+                "type": "string"
+            },
+            "aliasCode": {
+                "type": "string"
+            },
+            "aliasName": {
+                "type": "string"
+            },
+            "appliedOnBase": {
+                "properties": {
+                    "appliedType": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "double"
+                    },
+                    "valueType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "appliedOnPatientAmount": {
+                "properties": {
+                    "appliedType": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "double"
+                    },
+                    "valueType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "appliedOnSponsorAmount": {
+                "properties": {
+                    "appliedType": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "double"
+                    },
+                    "valueType": {
+                        "type": "string"
+                    }
+                }
+            },
+            "authorizationExclusion": {
+                "type": "boolean"
+            },
+            "component": {
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "currentTariff": {
+                "type": "boolean"
+            },
+            "days": {
+                "type": "string"
+            },
+            "effectiveFrom": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "effectiveTo": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "exclusion": {
+                "type": "boolean"
+            },
+            "gender": {
+                "type": "string"
+            },
+            "generic": {
+                "type": "boolean"
+            },
+            "group": {
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "id": {
+                "type": "long"
+            },
+            "itemCategory": {
+                "properties": {
+                    "id": {
+                        "type": "long"
+                    }
+                }
+            },
+            "itemGroup": {
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "long"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "itemType": {
+                "properties": {
+                    "id": {
+                        "type": "long"
+                    }
+                }
+            },
+            "maxAge": {
+                "type": "long"
+            },
+            "maxAmount": {
+                "type": "double"
+            },
+            "maxQuantity": {
+                "type": "long"
+            },
+            "minAge": {
+                "type": "long"
+            },
+            "minAmount": {
+                "type": "double"
+            },
+            "minQuantity": {
+                "type": "long"
+            },
+            "patientCopayment": {
+                "type": "double"
+            },
+            "planRuleType": {
+                "type": "string"
+            },
+            "sponsorPayTax": {
+                "type": "boolean"
+            },
+            "sponsorPayment": {
+                "type": "double"
+            },
+            "tariffAsOnDate": {
+                "type": "boolean"
+            },
+            "tariffEffectiveDate": {
+                "type": "date",
+                "format": "strict_date_optional_time||epoch_millis"
+            },
+            "tarrifClass": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "typeCode": {
+                "type": "string",
+                "fields": {
+                    "raw": {
+                        "type": "string",
+                        "analyzer": "ducet_sort"
+                    }
+                },
+                "analyzer": "word_analyzer"
+            },
+            "typeId": {
+                "type": "long"
+            },
+            "typeLevel": {
+                "type": "long"
+            },
+            "version": {
+                "type": "long"
+            },
+            "visitType": {
+                "type": "string"
+            }
+        }
+    }
+}

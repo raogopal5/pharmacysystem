@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle,mssql"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+
+    <changeSet id="sequence-expression-01" author="Nirbhay">
+        <insert tableName="sequence_expression">
+            <column name="id" valueSequenceNext="sequence_expression_id_seq"/>
+            <column name="tag" value="RECEIPT_SOURCE" />
+            <column name="expression" value="document.sequenceValueForReceiptSource"/>
+            <column name="type" value="ENTITY" />
+        </insert>
+
+        <insert tableName="sequence_expression">
+            <column name="id" valueSequenceNext="sequence_expression_id_seq"/>
+            <column name="tag" value="REVERSAL_SOURCE" />
+            <column name="expression" value="document.sequenceValueForReversalSource"/>
+            <column name="type" value="ENTITY" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="sequence-expression-02" author="Nirbhay">
+        <update tableName="sequence_expression">
+            <column name="expression" value="sequenceValueForReversalSource"/>
+            <where>tag ='REVERSAL_SOURCE'</where>
+        </update>
+
+        <update tableName="sequence_expression">
+            <column name="expression" value="sequenceValueForReceiptSource"/>
+            <where>tag ='RECEIPT_SOURCE'</where>
+        </update>
+    </changeSet>
+
+    <changeSet id="dispense-dml-sequence-format" author="">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="Dispense" />
+            <column name="reset_expression" value="&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="padding" value="6" />
+            <column name="prefix" value="DD-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="dispense-number-prefix-change" author="Nirbhay">
+        <update tableName="sequence_format">
+            <column name="prefix" value="DIS-|&lt;UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <where>document_type ='Dispense'</where>
+        </update>
+    </changeSet>
+
+</databaseChangeLog>

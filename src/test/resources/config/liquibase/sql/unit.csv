@@ -1,0 +1,7 @@
+id;name;active;code;organization_type;part_of_id;telecoms;address;contacts;calendar_id;started_on;clinical;license_number;website
+1;Athma Hospitals;true;NH;{"id": 11, "code": "other", "active": true, "display": "Other"};null;[];[];[];null;null;false;;
+2;Athma Public Limited Company;true;NHPLC;{"id": 244, "code": "LE", "active": true, "display": "Legal Entity"};1;[];[];[];null;null;false;;
+3;Athma Cardiac;true;1001;{"id": 1, "code": "prov", "active": true, "display": "Healthcare Provider"};2;[];[];[];null;null;false;10001;www.narayanahealth.org
+
+
+

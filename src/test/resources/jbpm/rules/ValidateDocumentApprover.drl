@@ -1,0 +1,35 @@
+/*package resources.jbpm.rules
+
+import org.nh.pharmacy.domain.StockAudit;
+import org.nh.pharmacy.domain.InventoryAdjustment;
+import org.nh.pharmacy.domain.StockCorrection;
+import org.nh.jbpm.domain.dto.Error;
+import org.nh.common.dto.UserDTO;
+
+
+rule "stock_audit_document_creator_can_not_be_approver"
+agenda-group "stock_audit_document_approver_validation"
+    when
+    $error : Error()
+    $fact  : StockAudit(document.createdBy == null || (document.approvedBy != null && ((document.createdBy.login).equals(document.approvedBy.login))))
+    then
+    $error.addError("10176" );
+end
+
+rule "inventory_adjustment_document_creator_can_not_be_approver"
+agenda-group "inventory_adjustment_document_approver_validation"
+    when
+    $error : Error()
+    $fact  : InventoryAdjustment(document.createdBy == null || (document.approvedBy != null && ((document.createdBy.login).equals(document.approvedBy.login))))
+    then
+    $error.addError("10176" );
+end
+
+rule "stock_correction_document_creator_can_not_be_approver"
+agenda-group "stock_correction_document_approver_validation"
+    when
+    $error : Error()
+    $fact  : StockCorrection(document.createdBy == null || (document.approvedBy != null && ((document.createdBy.login).equals(document.approvedBy.login))))
+    then
+    $error.addError("10176" );
+end*/

@@ -1,0 +1,44 @@
+package resources.jbpm.rules
+
+import org.nh.pharmacy.domain.StockReceipt;
+import org.nh.pharmacy.domain.enumeration.Status;
+import org.nh.jbpm.domain.dto.Error;
+import org.nh.common.dto.UserDTO;
+
+
+rule "stock_receipt_status_should_be_waiting_for_approval"
+agenda-group "stock_receipt_rules"
+    when
+     $error : Error()
+     $fact  : StockReceipt(document.status != Status.WAITING_FOR_APPROVAL)
+    then
+     $error.addError("10020" );
+end
+
+
+rule "stock_receipt_status_should_be_draft_for_delete"
+agenda-group "stock_receipt_delete_validation"
+when
+     $error : Error()
+     $fact  : StockReceipt(document.status != Status.DRAFT)
+    then
+     $error.addError("10021" );
+end
+
+rule "stock_receipt_status_should_be_draft_or_null"
+    agenda-group "stock_receipt_send_for_approval_validation"
+    when
+        $error : Error()
+        $fact  : StockReceipt(document.status != Status.DRAFT, document.status != null)
+    then
+        $error.addError("10022" );
+end
+
+/*rule "stock_receipt_document_creator_can_not_be_approver"
+agenda-group "stock_receipt_document_approver_validation"
+    when
+    $error : Error()
+    $fact  : StockReceipt(document.createdBy == null || (document.approvedBy != null && ((document.createdBy.login).equals(document.approvedBy.login))))
+    then
+    $error.addError("10176" );
+end*/

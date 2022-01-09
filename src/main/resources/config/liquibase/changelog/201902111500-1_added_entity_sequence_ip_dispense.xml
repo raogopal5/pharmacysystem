@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                                http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="201902111500-1-ip-pharmacy-seq" author="srinivas">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="ipPharmacyOrder" />
+            <column name="reset_expression" value="&lt;IP_PHARMACY_ORDER_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="padding" value="6" />
+            <column name="prefix" value="DISI-|&lt;IP_PHARMACY_ORDER_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+        <insert tableName="sequence_expression">
+            <column name="id" valueSequenceNext="sequence_expression_id_seq"/>
+            <column name="tag" value="IP_PHARMACY_ORDER_UNIT_CODE" />
+            <column name="expression" value="document.dispenseUnit.code" />
+            <column name="type" value="ENTITY" />
+        </insert>
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="ipPharmacyDirectIssue" />
+            <column name="reset_expression" value="&lt;IP_PHARMACY_ORDER_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="padding" value="6" />
+            <column name="prefix" value="DCI-|&lt;IP_PHARMACY_ORDER_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+    </changeSet>
+    <changeSet id="201903041605-1" author="srinivas">
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="ipPharmacyReturn" />
+            <column name="reset_expression" value="&lt;IP_PHARMACY_RETURN_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="padding" value="6" />
+            <column name="prefix" value="RTNI-|&lt;IP_PHARMACY_RETURN_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+        <insert tableName="sequence_format">
+            <column name="id" valueSequenceNext="sequence_format_id_seq"/>
+            <column name="document_type" value="ipPharmacyDirectReturn" />
+            <column name="reset_expression" value="&lt;IP_PHARMACY_RETURN_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="padding" value="6" />
+            <column name="prefix" value="DCI-|&lt;IP_PHARMACY_RETURN_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;" />
+            <column name="organization_code" value="NH" />
+            <column name="delimiter" value="|" />
+        </insert>
+        <insert tableName="sequence_expression">
+            <column name="id" valueSequenceNext="sequence_expression_id_seq"/>
+            <column name="tag" value="IP_PHARMACY_RETURN_UNIT_CODE" />
+            <column name="expression" value="document.unit.code" />
+            <column name="type" value="ENTITY" />
+        </insert>
+    </changeSet>
+    <changeSet id="201903191850-1" author="srinivas">
+        <update tableName="sequence_format" >
+            <column name="prefix" value="DCR-|&lt;IP_PHARMACY_RETURN_UNIT_CODE&gt;|-|&lt;YY&gt;|&lt;MM&gt;"/>
+            <where>document_type= 'ipPharmacyDirectReturn'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

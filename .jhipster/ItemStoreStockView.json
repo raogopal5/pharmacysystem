@@ -1,0 +1,69 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "itemId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },{
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "ItemStoreStockViewType",
+            "fieldValues": "GENERIC,BRAND",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "availableStock",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "stocklastSyncDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "store",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "consumedQtyCurrMonth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "consumedQtyLastMonth",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "transitQty",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20170529102700",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "item_store_stock_view",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <changeSet id="20190822115535_iu_datetime" author="Pavan">
+        <addColumn tableName="billing_remarks">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="dispense">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="dispense_return">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="inventory_adjustment">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="invoice">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="invoice_receipt">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="item_store_stock_view">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="item_barcode">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="medication_order">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="medication_request">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="receipt">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="refund">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="saved_audit_criterias">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="sponsor_invoice">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_audit">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_consumption">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_correction">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_indent">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_issue">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_receipt">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_reversal">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_audit_plan">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addColumn tableName="stock_source_header">
+            <column name="iu_datetime" type="timestamp" defaultValue="now()">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <dropDefaultValue tableName="billing_remarks" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="dispense" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="dispense_return" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="inventory_adjustment" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="invoice" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="invoice_receipt" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="item_store_stock_view" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="item_barcode" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="medication_order" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="medication_request" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="receipt" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="refund" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="saved_audit_criterias" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="sponsor_invoice" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_audit" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_consumption" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_correction" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_indent" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_issue" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_receipt" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_reversal" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_audit_plan" columnName="iu_datetime"/>
+        <dropDefaultValue tableName="stock_source_header" columnName="iu_datetime"/>
+
+        <sqlFile dbms="postgresql"
+                 splitStatements="false"
+                 path="config/liquibase/sql/20190822115535_iu_datetime.sql" encoding="UTF-8"/>
+
+        <createIndex tableName="billing_remarks" indexName="billing_remarks_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="dispense" indexName="dispense_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="dispense_return" indexName="dispense_return_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="inventory_adjustment" indexName="inventory_adjustment_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="invoice" indexName="invoice_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="invoice_receipt" indexName="invoice_receipt_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="item_store_stock_view" indexName="item_store_stock_view_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="item_barcode" indexName="item_barcode_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="medication_order" indexName="medication_order_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="medication_request" indexName="medication_request_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="receipt" indexName="receipt_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="refund" indexName="refund_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="saved_audit_criterias" indexName="saved_audit_criterias_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="sponsor_invoice" indexName="sponsor_invoice_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_audit" indexName="stock_audit_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_consumption" indexName="stock_consumption_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_correction" indexName="stock_correction_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_indent" indexName="stock_indent_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_issue" indexName="stock_issue_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_receipt" indexName="stock_receipt_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_reversal" indexName="stock_reversal_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_audit_plan" indexName="stock_audit_plan_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+        <createIndex tableName="stock_source_header" indexName="stock_source_header_iu_datetime_indx">
+            <column name="iu_datetime"/>
+        </createIndex>
+
+
+    </changeSet>
+
+    <changeSet id="20191119115535_item_group" author="Nirbhay">
+        <addColumn tableName="item_store_stock_view">
+            <column name="item_group" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

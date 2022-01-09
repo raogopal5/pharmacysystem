@@ -1,0 +1,436 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: DEBUG
+    io.github.jhipster: DEBUG
+    org.nh.pharmacy: DEBUG
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    metadataMap:
+        zone: primary
+  client:
+    service-url:
+      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
+
+management:
+  health:
+    elasticsearch:
+      enabled: false
+
+spring:
+  profiles:
+    active: dev
+    include:
+      - swagger
+      # Uncomment to activate TLS for the dev profile
+      #- tls
+  http:
+      multipart:
+          max-file-size: 10MB
+          max-request-size: 10MB
+  servlet:
+      multipart:
+          maxFileSize: 10MB
+          maxRequestSize: 1024MB
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: static/**
+    livereload:
+      enabled: false # we use Webpack dev server + BrowserSync for livereload
+  jackson:
+    serialization:
+      indent-output: true
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 172.23.25.10
+          zk-nodes: 172.23.25.10
+          producerProperties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      bindings:
+          organization-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-organization
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.Organization
+          healthcareservicecenter-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-healthcareservicecenter
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.HealthcareServiceCenter
+          uom-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-uom
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.UOM
+          group-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-group
+              content-type: application/json
+          user-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-user
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.User
+          locator-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-locator
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.Locator
+          item-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-item
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.Item
+          itemcategory-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-itemcategory
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.ItemCategory
+          itemPricingMethod-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-itemPricingMethod
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.ItemPricingMethod
+          itemStoreLocatorMap-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-itemStoreLocatorMap
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.ItemStoreLocatorMap
+          hscGroupMapping-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-hscGroupMapping
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.HSCGroupMapping
+          stock-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: stockout
+              content-type: application/x-java-object;type=java.util.Map
+          stock-output:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: stockout
+              content-type: application/json
+          move-to-stock-transit-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: movetostocktransit
+              content-type: application/x-java-object;type=java.util.Map
+          move-to-stock-transit-output:
+              destination: movetostocktransit
+              content-type: application/json
+          stock-move-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: stockmove
+              content-type: application/x-java-object;type=java.util.Map
+          stock-move-output:
+              destination: stockmove
+              content-type: application/json
+          remove-hscGroupMapping-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-remove-hscGroupMapping
+              content-type: application/x-java-object;type=java.lang.String
+          item_store-stock_input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: itemstorestockupdate
+              content-type: application/x-java-object;type=java.util.Map
+          item_store_stock_output:
+              destination: itemstorestockupdate
+              content-type: application/json
+          calendar-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-calendar
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.Calendar
+          location-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-location
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.Location
+          pam-ph-output:
+              destination: pam-ph-integration
+              content-type: application/json
+          pam-acknowledgement-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: pam-ph-acknowledgement
+              content-type: application/x-java-object;type=org.nh.billing.domain.dto.PamDocument
+          medication-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-medication
+              content-type: application/json
+          jbpm-notification-output:
+              destination: jbpm-notification
+              content-type: application/json
+          taxMapping-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-taxMapping
+              content-type: application/x-java-object;type=org.nh.billing.domain.TaxMapping
+          plan-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-plan
+              content-type: application/x-java-object;type=org.nh.billing.domain.Plan
+          planRule-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-planRule
+              content-type: application/x-java-object;type=org.nh.billing.domain.PlanRule
+          planTemplate-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-planTemplate
+              content-type: application/x-java-object;type=org.nh.billing.domain.PlanTemplate
+          planOrganizationMapping-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-planOrganizationMapping
+              content-type: application/x-java-object;type=org.nh.billing.domain.PlanOrganizationMapping
+          patientPlan-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: mdm-patientPlan
+              content-type: application/x-java-object;type=org.nh.billing.domain.PatientPlan
+          amb-external-patient-output:
+              destination: mpi-external-patient
+              content-type: application/json
+          stock-source-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: stocksourceupdate
+              content-type: application/x-java-object;type=java.util.Map
+          stock-source-output:
+              destination: stocksourceupdate
+              content-type: application/json
+          item_store_stock_view_input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: transittoitemstorestockview
+              content-type: application/json
+          item_store_stock_view_output:
+              destination: transittoitemstorestockview
+              content-type: application/json
+          invoiceNumberToAuthorization-output:
+              destination: invoiceNumberToAuthorization
+              content-type: application/json
+          encounter-output:
+              destination: patient-encounter
+              content-type: application/json
+          chargeRecord-output:
+              destination: chargeRecord
+              content-type: application/json
+          medicationRequest-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: ambMedicationRequest
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.MedicationRequest
+          dispense-output:
+              destination: dispenseUpdate
+              content-type: application/json
+          medicationRequest-status-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: medicationRequestStatusUpdate
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.MedicationRequest
+          chargeRecord-update-output:
+              destination: chargeRecordUpdate
+              content-type: application/json
+          document-record-output:
+              destination: document-record
+              content-type: application/json
+          phr-medicationOrder-output:
+              destination: phrMedicationOrder
+              content-type: application/json
+          cpoe-medicationOrder-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: cpoeMedicationOrder
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.MedicationOrder
+          receipt-adjustment-output:
+              destination: receiptAdjustment
+              content-type: application/json
+          store-auto-consumption-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: storeStockAutoConsumption
+              content-type: application/x-java-object;type=java.util.Map
+          store-auto-consumption-output:
+              destination: storeStockAutoConsumption
+              content-type: application/json
+          dispenseRecordEncounterUpdate-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: dispenseRecordEncounterUpdate
+              content-type: application/x-java-object;type=java.util.List
+          dispenseChargeRecordEncounterUpdate-output:
+              destination: dispenseChargeRecordEncounterUpdate
+              content-type: application/json
+          task-info-output:
+              destination: taskInfo
+              content-type: application/json
+          dms-document-audit-output:
+              destination: document-audit
+              content-type: application/json
+              producer:
+                 partitionCount: 1
+          external-stock-consumption-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination:  externalStockConsumptionInput
+              content-type: application/json
+          blood-bag-stock-consumption-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: blood-bag-stock-consumption
+              content-type: application/x-java-object;type=java.util.Map
+          blood-bag-stock-reversal-input:
+              group: ${PHARMACY_CONSUMER_GROUP:pharmacy}
+              destination: bloodBagStockReversal
+              content-type: application/x-java-object;type=java.util.Map
+          medicationRequest-pa-input:
+              group: pendingAuditGroup
+              destination: ambMedicationRequest
+              content-type: application/x-java-object;type=org.nh.pharmacy.domain.MedicationRequest
+          prescription-audit-request-output:
+              destination: prescriptionAuditUpdate
+              content-type: application/json
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/pharmacy_db_dev
+    username: postgres
+    password: Password@123
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      maximum-pool-size: 5
+      minimum-idle: 2
+  jpa:
+    database-platform: org.nh.pharmacy.config.AthmaPostgreSQL95Dialect
+    database: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: false
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: true
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.cache.region.factory_class: com.hazelcast.hibernate.HazelcastCacheRegionFactory
+      hibernate.cache.hazelcast.instance_name: pharmacy
+      hibernate.cache.use_minimal_puts: true
+      hibernate.cache.hazelcast.use_lite_member: true
+      hibernate.jdbc.batch_size: 10
+      hibernate.order_updates: true
+  data:
+    jest:
+      uri: http://172.23.25.5:10200
+    # see https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-nosql.html#boot-features-connecting-to-elasticsearch-jest
+  elasticsearch:
+    rest:
+      uris: http://172.23.25.5:10200
+  liquibase:
+    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: dev, faker
+  mail:
+    host: localhost
+    port: 25
+    username:
+    password:
+    fromMail:
+    fromText:
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+  thymeleaf:
+    cache: false
+  freemarker:
+    cache: true
+    template-loader-path: classpath:/ftl/
+  sleuth:
+    sampler:
+      probability: 1 # report 100% of traces
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+    base-url: http://localhost:9411
+    enabled: false
+    locator:
+      discovery:
+        enabled: true
+
+server:
+  port: 8083
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  cache: # Cache configuration
+    hazelcast: # Hazelcast distributed cache
+      time-to-live-seconds: 3600
+      backup-count: 1
+      management-center: # Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+        enabled: false
+        update-interval: 3
+        url: http://localhost:8180/hazelcast-mancenter
+  # CORS is disabled by default on microservices, as you should access them through a gateway.
+  # If you want to enable it, please uncomment the configuration below.
+  # cors:
+  #     allowed-origins: "*"
+  #     allowed-methods: "*"
+  #     allowed-headers: "*"
+  #     exposed-headers: "Authorization,Link,X-Total-Count"
+  #     allow-credentials: true
+  #     max-age: 1800
+  security:
+    client-authorization:
+      access-token-uri: http://uaa/oauth/token
+      token-service-id: uaa
+      client-id: internal
+      client-secret: internal
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    from: pharmacy@localhost
+    base-url: http://127.0.0.1:8083
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: false
+      report-frequency: 60 # in seconds
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+  audit-events:
+    retention-period: 30 # Number of days before audit events are deleted.
+oauth2:
+  signature-verification:
+    public-key-endpoint-uri: http://uaa/oauth/token_key
+    #ttl for public keys to verify JWT tokens (in ms)
+    ttl: 3600000
+    #max. rate at which public keys will be fetched (in ms)
+    public-key-refresh-rate-limit: 10000
+  web-client-configuration:
+    #keep in sync with UAA configuration
+    client-id: web_app
+    secret: changeit
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+application:
+    configs:
+        indexPageSize: 200
+        exportRowsCount: 2000
+        plutusStatusTimeOut: 10000
+        plutusTimeOut: 30000
+    redisCache:
+        redisHost: 172.23.25.8
+        redisPort: 6379
+        cacheEnabled: true
+        clustered: false
+        taxMappingCacheEnabled: true
+    athmaBucket:
+        masterExport: ./../athmabucket/masterexport/
+        rulesPath: ./src/test/resources/jbpm/rules/
+        processDefinitionsPath: ./src/test/resources/jbpm/processdefinitions/
+        template: ./src/test/resources/template/
+        tempExport: ./../athmabucket/tempexport/
+        printSaveFile: ./../athmabucket/printtemplate/files/
+        docBasePath: ./../athmabucket/docs/
+    sendGrid:
+        api-key:

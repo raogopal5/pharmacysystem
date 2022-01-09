@@ -1,0 +1,12 @@
+package resources.jbpm.rules
+
+import org.nh.pharmacy.domain.Item;
+
+
+rule "code_should_be_three_digits"
+ruleflow-group "rule1"
+    when
+        Item(code != null, code matches "([0-9]{3})")
+    then
+		System.out.println("############## Group-Rule1 rules are applied for Item #################");
+end

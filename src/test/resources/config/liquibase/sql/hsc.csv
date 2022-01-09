@@ -1,0 +1,4 @@
+id;code;name;active;available_time;not_available_time;appointment_required;started_on;telecom;comments;part_of_id;location_id;service_category;sub_category;calendar_id;attributes
+1;"104-MS1";"MAIN STORE - NH Cardiac";true;"[]";"[]";false;"2017-06-01 00:00:00";"[{"use": null, "rank": null, "value": null, "active": true, "system": null}]";"";3;1;"{"id": 215, "code": "store", "active": true, "display": "Store"}";"{"id": 200, "code": "pharmacy", "active": true, "display": "Pharmacy"}";null;"{"InventoryOrgCode": "104"}"
+2;"104-AT2";"AITU STORE-2F";true;"[]";"[]";false;null;"[{"use": null, "rank": null, "value": null, "active": true, "system": null}]";"";3;1;"{"id": 215, "code": "store", "active": true, "display": "Store"}";"{"id": 200, "code": "pharmacy", "active": true, "display": "Pharmacy"}";null;"{"InventoryOrgCode": "104"}"
+

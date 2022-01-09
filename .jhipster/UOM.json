@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "createdfor",
+            "otherEntityName": "Organization",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "UOM"
+        },
+        {
+            "relationshipName": "baseUOM",
+            "otherEntityName": "UOM",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "UOM"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "conversionFactor",
+            "fieldType": "Float",
+            "default": 1
+        },
+        {
+            "fieldName": "uomType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170118115811",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "uom",
+    "pagination": "pager",
+    "microserviceName": "pharmacy",
+    "searchEngine": "elasticsearch",
+    "enableEntityAudit": false
+}

@@ -1,0 +1,225 @@
+package resources.jbpm.rules;
+
+dialect "java"
+
+import org.nh.pharmacy.domain.Dispense;
+import org.nh.pharmacy.domain.dto.DispensePlan;
+import org.nh.common.dto.PatientDTO;
+import org.nh.common.dto.EncounterDTO;
+import org.nh.pharmacy.domain.dto.DispenseDocument;
+import org.nh.pharmacy.domain.dto.DispenseDocumentLine;
+import org.nh.pharmacy.domain.dto.DispenseTax;
+import org.nh.billing.domain.dto.PlanRuleDetail;
+import org.nh.billing.domain.dto.TaxDefinition;
+import org.nh.billing.domain.dto.TaxCalculation;
+
+import org.nh.billing.domain.PlanRules;
+import org.nh.billing.domain.enumeration.PlanRuleType;
+import org.nh.billing.domain.enumeration.BaseSponsorPatientType;
+import org.nh.billing.domain.enumeration.BaseSponsorPatientValueType;
+import org.nh.billing.domain.enumeration.VisitType;
+import static org.nh.common.util.BigDecimalUtil.*;
+
+rule "Dispense_Rules_For_Each_Line"
+	salience 65599
+	when
+	    dispense: Dispense()
+	    dispenseLine:DispenseDocumentLine(planRuleDetail == null) from dispense.getDocument().getDispenseDocumentLines()
+	then
+        insert(dispenseLine);
+end
+
+rule "Dispense_Rules_Find_PlanRule_for_Drug"
+	salience 65589
+	when
+	    dispense: Dispense()
+	    dispenseLine: DispenseDocumentLine()
+	    encounter: EncounterDTO() from dispense.getDocument().getEncounter()
+	    patient: PatientDTO() from dispense.getDocument().getPatient()
+	    plan: PlanRules()
+	    planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan), (component != null && component.id !=null && (component.id == dispenseLine.getItemId() || genericMatching(dispenseLine.getGenericName()))),active == true,
+	    (visitType == null || visitType.size() == 0 || visitType.contains("AMB") ||visitType.contains(VisitType.OP.name())),(gender == null || gender.toLowerCase() == patient.getGender().toLowerCase()),
+	    ((minQuantity == null || maxQuantity == null) || (minQuantity <= dispenseLine.getAccumulatedItemQty() && maxQuantity >= dispenseLine.getAccumulatedItemQty())),
+	    ((minAmount == null || maxAmount == null) || (lte(getBigDecimal(minAmount),dispenseLine.getAccumulatedItemAmount()) && gte(getBigDecimal(maxAmount) , dispenseLine.getAccumulatedItemAmount()))),
+	    ((consultant == null || consultant.getId() == null) || (encounter.getConsultant() != null && consultant.getId() == encounter.getConsultant().getId())),
+        ((department == null || department.getId() == null) || (encounter.getDepartment() != null && department.getId() == encounter.getDepartment().getId())),
+	    ((minAge == null || maxAge == null) || (minAge <= patient.getAge() && maxAge >= patient.getAge())),
+	    (days==null || days == dispenseLine.getDayOfWeeK())
+	    ) from plan.getPlanRuleDetailsList()
+	then
+	    System.out.println("Pl rule detail :"+planRuleDetail.toString());
+	    System.out.println("Iam inserted....MRP :"+dispenseLine.getTotalMrp());
+	    insert(planRuleDetail);
+end
+
+rule "Dispense_Rules_Find_PlanRule_for_Drug_Group"
+	salience 65588
+	when
+	    dispense: Dispense()
+	    dispenseLine: DispenseDocumentLine()
+	    encounter: EncounterDTO() from dispense.getDocument().getEncounter()
+	    patient: PatientDTO() from dispense.getDocument().getPatient()
+	    plan: PlanRules()
+	    planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan),(component == null || component.id == null),( itemGroup !=null && itemGroup.id !=null && itemGroup.id == dispenseLine.getItemGroup().getId()), active == true,
+	    (visitType == null || visitType.size() == 0  || visitType.contains("AMB") || visitType.contains(VisitType.OP.name())),(gender == null || gender.toLowerCase() == patient.getGender().toLowerCase()),
+	    ((minQuantity == null || maxQuantity == null) || (minQuantity <= dispenseLine.getAccumulatedGroupQty() && maxQuantity >= dispenseLine.getAccumulatedGroupQty())),
+	    ((minAmount == null || maxAmount == null) || (lte(getBigDecimal(minAmount),dispenseLine.getAccumulatedGroupAmount()) && gte(getBigDecimal(maxAmount) , dispenseLine.getAccumulatedGroupAmount()))),
+	    ((consultant == null || consultant.getId() == null) || (encounter.getConsultant() != null && consultant.getId() == encounter.getConsultant().getId())),
+        ((department == null || department.getId() == null) || (encounter.getDepartment() != null && department.getId() == encounter.getDepartment().getId())),
+	    ((minAge == null || maxAge == null) || (minAge <= patient.getAge() && maxAge >= patient.getAge())),
+	    (tariffClass == null || encounter.getTariffClass() == null || encounter.getTariffClass().getCode() == null || tariffClass == encounter.getTariffClass().getCode()),
+	    (days==null || days == dispenseLine.getDayOfWeeK())
+	    ) from plan.getPlanRuleDetailsList()
+	then
+	    System.out.println("Pl rule detail :"+planRuleDetail.toString());
+	    System.out.println("Iam inserted....MRP :"+dispenseLine.getTotalMrp());
+	    insert(planRuleDetail);
+end
+
+rule "Dispense_Rules_Find_PlanRule_For_Plan_Item"
+	salience 65587
+	when
+	    dispense: Dispense()
+	    dispenseLine: DispenseDocumentLine()
+	    encounter: EncounterDTO() from dispense.getDocument().getEncounter()
+	    patient: PatientDTO() from dispense.getDocument().getPatient()
+	    plan: PlanRules()
+	    planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan), (component == null || component.id == null), (itemGroup == null || itemGroup.id == null  || itemGroup.id == 0l) , active == true,
+	    (visitType == null || visitType.size() == 0  || visitType.contains("AMB") || visitType.contains(VisitType.OP.name())),(gender == null || gender.toLowerCase() == patient.getGender().toLowerCase()),
+	    ((minQuantity == null || maxQuantity == null) || (minQuantity <= dispenseLine.getAccumulatedPlanQty() && maxQuantity >= dispenseLine.getAccumulatedPlanQty())),
+	    ((minAmount == null || maxAmount == null) || (lte(getBigDecimal(minAmount),dispenseLine.getAccumulatedPlanAmount()) && gte(getBigDecimal(maxAmount) , dispenseLine.getAccumulatedPlanAmount()))),
+	    ((consultant == null || consultant.getId() == null) || (encounter.getConsultant() != null && consultant.getId() == encounter.getConsultant().getId())),
+        ((department == null || department.getId() == null) || (encounter.getDepartment() != null && department.getId() == encounter.getDepartment().getId())),
+	    ((minAge == null || maxAge == null) || (minAge <= patient.getAge() && maxAge >= patient.getAge())),
+	    (tariffClass == null || encounter.getTariffClass() == null || encounter.getTariffClass().getCode() == null || tariffClass == encounter.getTariffClass().getCode()),
+	    (days==null || days == dispenseLine.getDayOfWeeK())
+	    ) from plan.getPlanRuleDetailsList()
+	then
+	    System.out.println("Pl rule detail :"+planRuleDetail.toString());
+	    System.out.println("Iam inserted....MRP :"+dispenseLine.getTotalMrp());
+	    insert(planRuleDetail);
+end
+
+rule "Dispense_Rules_update_line_with_component_rule"
+salience 65579
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item), (component != null && component.id != null && ( component.id == dispenseLine.getItemId()|| genericMatching(dispenseLine.getGenericName()))),
+         (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+         (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())),
+         (itemGroup == null || itemGroup.id == null || (dispenseLine.getItemGroup() != null && itemGroup.id == dispenseLine.getItemGroup().getId())), exclusion == false, isAuthMasterRule() == false)
+        dispensePlan:DispensePlan()
+    then
+        if (dispenseLine.checkAndAddPlanRuleDetail(planRuleDetail)) {
+            dispenseLine.setItemInclusionRuleAdded(true);
+            dispenseLine.setDispensePlan(dispensePlan);
+        }
+end
+
+rule "Dispense_Rules_update_line_with_group_rule"
+salience 65578
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item), (component == null || component.id == null), (component == null || component.name == null ),
+         (itemGroup !=null && itemGroup.id !=null && dispenseLine.getItemGroup() != null && itemGroup.id == dispenseLine.getItemGroup().getId()),
+         (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+         (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())), exclusion == false, isAuthMasterRule() == false)
+        dispensePlan:DispensePlan()
+    then
+        if (dispenseLine.checkAndAddPlanRuleDetail(planRuleDetail)) {
+            dispenseLine.setDispensePlan(dispensePlan);
+        }
+end
+
+rule "Dispense_Rules_update_line_with_item_rule"
+salience 65577
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item), (component == null || component.id == null ), (component == null || component.name == null ), ( itemGroup ==null || itemGroup.id ==null),
+         (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+         (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())), exclusion == false, isAuthMasterRule() == false)
+        dispensePlan:DispensePlan()
+    then
+        if (dispenseLine.checkAndAddPlanRuleDetail(planRuleDetail)) {
+            dispenseLine.setDispensePlan(dispensePlan);
+        }
+end
+
+rule "Dispense_Rules_update_line_with_plan_rule"
+salience 65576
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Plan), (component == null || component.id == null), (component == null || component.name == null ),(itemGroup == null || itemGroup.id == null),
+         (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+         (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())), exclusion == false, isAuthMasterRule() == false)
+        dispensePlan:DispensePlan()
+    then
+        if (dispenseLine.checkAndAddPlanRuleDetail(planRuleDetail)) {
+            dispenseLine.setDispensePlan(dispensePlan);
+        }
+        //dispense.updateLineWithPlanRuleDetail(dispenseLine, planRuleDetail, dispensePlan);
+end
+
+rule "Dispense_Rules_reset_line_with_plan_rule"
+salience 65569
+    when
+        dispenseLine: DispenseDocumentLine()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan), (component == null || component.id == null|| component.id == dispenseLine.getItemId()),
+        (itemCategory == null || (dispenseLine.getItemCategory() != null && itemCategory.id == dispenseLine.getItemCategory().getId())),
+                 (itemType == null || (dispenseLine.getItemType() != null && itemType.id == dispenseLine.getItemType().getId())),
+                 (itemGroup == null || itemGroup.id == null || (dispenseLine.getItemGroup() != null && itemGroup.id == dispenseLine.getItemGroup().getId())), exclusion == true, isAuthMasterRule() == false)
+    then
+        if (!dispenseLine.getItemInclusionRuleAdded() && dispenseLine.checkAndRemovePlanRuleDetail(planRuleDetail)) {
+            dispenseLine.setDispenseItemPlans(null);
+            dispenseLine.setDispensePlan(null);
+        }
+end
+
+rule "Dispense_Rules_component_authorization_rule"
+salience 65559
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        dispensePlan:DispensePlan()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan), (component != null && component.id != null  && ( component.id == dispenseLine.getItemId() || genericMatching(dispenseLine.getGenericName()))),(authorizationAmountAdded == true ))
+    then
+        dispenseLine.setPlanAuthorizationRuleDetail(planRuleDetail);
+end
+
+rule "Dispense_Rules_group_authorization_rule"
+salience 65549
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        dispensePlan:DispensePlan()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan), (component == null || component.id == null ),( group !=null && group.id !=null && group.id == dispenseLine.getItemGroup().getId()),(authorizationAmountAdded == true ))
+    then
+        dispenseLine.setPlanAuthorizationRuleDetail(planRuleDetail);
+end
+
+
+rule "Dispense_Rules_plan_authorization_rule"
+salience 65539
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine()
+        dispensePlan:DispensePlan()
+        planRuleDetail:PlanRuleDetail((planRuleType == PlanRuleType.Item || planRuleType == PlanRuleType.Plan), (component == null ||  component.id == null ),(group == null || group.id == null  || group.id == 0l),(authorizationAmountAdded == true ))
+    then
+        dispenseLine.setPlanAuthorizationRuleDetail(planRuleDetail);
+end
+
+/*
+rule "Dispense_Rules_update_line_without_plan_rule"
+    salience 65569
+    when
+        dispense: Dispense()
+        dispenseLine: DispenseDocumentLine(isListNullOrEmpty(dispenseItemPlans) == true)
+    then
+        dispense.updateLineWithoutPlanRuleDetail(dispenseLine);
+end
+*/

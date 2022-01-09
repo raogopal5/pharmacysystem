@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity MedicationRequest.
+    -->
+    <changeSet id="201711291504320-1" author="Indrajeet">
+        <createTable tableName="medication_request">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="document_number" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="document" type="jsonb">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="version" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="latest" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+    <changeSet id="202009171010-1" author="srinivas">
+        <addColumn tableName="medication_request">
+            <column name="prescription_audited" type="boolean" defaultValue="true"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="202115511204-1" author="sanal">
+        <addColumn tableName="medication_request">
+            <column name="discharge_medication" type="boolean" defaultValue="false"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

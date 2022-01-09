@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "itemId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "itemCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "batchNo",
+            "fieldType": "String"
+        }
+
+    ],
+    "changelogDate": "20210210052400",
+    "dto": "no",
+    "entityTableName": "item_batch_info",
+    "microserviceName": "pharmacy",
+    "pagination": "infinite-scroll",
+    "enableEntityAudit": false
+}

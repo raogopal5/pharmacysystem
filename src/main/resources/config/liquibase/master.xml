@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170220144346_added_entity_StockSource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170220144346_added_entity_StockFlow.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170220150000_added_entity_Stock.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170202113620_added_entity_Holidays.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170202112620_added_entity_Calendar.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161128134156_added_entity_Organization.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118071137_added_entity_Item.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118091817_added_entity_ItemCategory.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118105425_added_entity_ItemPricingMethod.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118110207_added_entity_ItemStoreLocatorMap.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161128165632_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118120000_added_entity_Locator.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170109161145_added_entity_Group.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170220134256_added_entity_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118115811_added_entity_UOM.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170221113156_added_entity_ItemUnitAverageCost.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170228145645_updated_entity_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170301104731_updated_entity_StockSource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170308580000_added_entity_StockReversal.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:config/liquibase/changelog/201702201431_added_entity_ReserveStock.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170307094530_added_entity_Ingredient.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170307094530_added_entity_Medication.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170313110653_added_entity_HSCGroupMapping.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170308150000_added_entity_StockIssue.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170307150000_added_entity_StockIndent.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/sequence_generator_master.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170324150000_added_entity_StockConsumption.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170313130000_added_entity_StockReceipt.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170403150000_added_entity_StockAuditPlan.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170407150000_added_entity_StockAudit.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170406130000_added_entity_StockCorrection.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170406141500_added_entity_InventoryAdjustment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170511143000_added_entity_StockDataProcessor.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170511042933_added_entity_User.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170529102700_added_entity_ItemStoreStockView.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170612011019_added_entity_SystemAlert.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170705151000_added_entity_DispenseReturn.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20171212190000_added_entity_SavedAuditCriteria.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20171116052401_added_entity_ItemBarcode.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201711291504320_added_entity_MedicationRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201809071431_added_entity_StockTransit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924162620_added_entity_StockSourceHeader.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20190124122927_added_entity_IPDispenseReturnRequest.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170202112620_added_entity_constraints_Calendar.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161128134156_added_entity_constraints_Organization.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118071137_added_entity_constraints_Item.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118091817_added_entity_constraints_ItemCategory.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118105425_added_entity_constraints_ItemPricingMethod.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118110207_added_entity_constraints_ItemStoreLocatorMap.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161128165632_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118120000_added_entity_constraints_Locator.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170109161145_added_entity_constraints_Group.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170220134256_added_entity_constraints_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170118115811_added_entity_constraints_UOM.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170226110406_updated_entity_Organization.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170228145325_updated_entity_constraints_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170307094530_added_entity_constraints_Ingredient.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170307094530_added_entity_constraints_Medication.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170313110653_added_entity_constraints_HSCGroupMapping.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170407150000_added_stock_SequenceFormats.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170529193000_updated_entity_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:config/liquibase/changelog/20170511042933_added_entity_constraints_User.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/2017053111300000_updated_entity_Item.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170531161027_FEAT_1084_updated_entity_ItemCategory.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170506173000_updated_entity_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170607112000_updated_entity_Stock.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170607113000_updated_entity_StockSource.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+    <include file="classpath:config/liquibase/changelog/20170223071137_feat_315_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201703031416_changed_datatypes_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170309115946_updated_feat_342_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170317150000_updated_feat_420_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170321580000_updated_feat_463_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170322184500_updated_feat_426_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170321150000_updated_feat_448_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170404150000_updated_feat_572_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170503170100_updated_feat_860_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170515165600_dml_for_stock_correction_sequenceFormat.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170526160800_feat_1068_ddl_to_add_dispensableGeneric_in_item.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170307150000_added_entity_Dispense.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/billing_master.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170626150000_updated_feat_1486_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/jbpm_master.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170519175900_feat_1508_quartz_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170711150000_added_stock_SequenceExpression.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170720120000_added_entity_constraints_Store.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170828174500_feat-2726_updated_entity_stockaudit.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/20170830155200_feat-2801_updated_entity_HealthcareServiceCenter.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/2017040917170000_updated_entity_StockSource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/2017090520171600000_feat_2874_stock_barcode_sequenceFormat.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170907071138_feat_3093_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/2017101320171600000_feat_4067_plutus_transaction_number_sequenceFormat.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20171127175230_FEAT-5556_ddl.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180117193000_added_entity_StockFlowStockSource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20180205180000_FEAT_6837_updated_entity_StockFlowStockSource_dml.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/FEAT_10428_update_document_no_format_pharmacy.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/2018061820171600000_feat_12097_dispense_external_patient_sequenceFormat.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/2018073120171600000_FEAT-13052_sequenceFormat_20chars.xml" relativeToChangelogFile="false"/>
+    <!-- Big Decimal Conversion -->
+    <include file="classpath:config/liquibase/changelog/20181012112300_big_decimal_conversion.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/201901242102-1-added-entity-sequence-ip-dispense-return-request.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/201902111500-1_added_entity_sequence_ip_dispense.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/201905081720_added_entity_medication_order.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/201905071720_added_entity_task_rule.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/ehr_master.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20190822115535_added_audit_modified_date_time_changes.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/202009102010-1_added_entity_prescription_audit.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/20201127175230_FEAT-35919_ddl.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/20210210052401_added_entity_ItemBatchInfo.xml" relativeToChangelogFile="false" />
+</databaseChangeLog>
